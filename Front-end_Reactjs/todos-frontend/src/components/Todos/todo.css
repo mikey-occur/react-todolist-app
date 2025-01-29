@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #343a40;
+    height: 100%;
+}
+
+@keyframes strikeitem {
+    to {
+        width: calc(100% + 1rem);
+    }
+}
+
+#todolist {
+    margin: 4rem auto;
+    padding: 2rem 3rem 3rem;
+    max-width: 500px;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+#todolist h1 {
+    font-weight: bold;
+    font-size: 2.4rem;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+#todolist h1 span {
+    display: block;
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-weight: normal;
+    opacity: 0.7;
+}
+
+#todolist .emptylist {
+    margin-top: 2.6rem;
+    text-align: center;
+    font-style: italic;
+    opacity: 0.7;
+    color: #fff;
+}
+
+#todolist ul {
+    margin-top: 2.6rem;
+    list-style: none;
+}
+
+#todolist li {
+    display: flex;
+    margin: 0 -3rem 8px;
+    padding: 1.2rem 3rem;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#todolist li:hover {
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+#todolist .actions {
+    flex-shrink: 0;
+    padding-left: 0.7em;
+}
+
+#todolist .label {
+    position: relative;
+    transition: opacity 0.3s linear;
+    font-size: 1.1rem;
+}
+
+#todolist .done .label {
+    opacity: 0.6;
+    text-decoration: line-through;
+}
+
+#todolist .done .label:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -0.5rem;
+    display: block;
+    width: 0%;
+    height: 1px;
+    background: white;
+    animation: strikeitem 0.3s ease-out forwards;
+}
+
+#todolist .btn-picto {
+    border: none;
+    background: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+    color: white;
+    margin-left: 5px;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+#todolist .btn-picto:hover {
+    transform: scale(1.1);
+    color: #ffd1dc;
+}
+
+
+/* FORM */
+form {
+    margin-top: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+form label {
+    min-width: 100%;
+    margin-bottom: 1rem; /* Tạo khoảng cách giữa label và ô input */
+    font-size: 1.3rem;
+}
+
+form input {
+    flex-grow: 1;
+    border: none;
+    background: #f8f9fa;
+    padding: 0 1.5em;
+    border-radius: 8px;
+    box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.05);
+    font-size: 1rem;
+    height: 2em;
+}
+
+form button {
+    padding: 0 1.3rem;
+    border: none;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-left: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background: linear-gradient(135deg, #ff6e93, #ff4d7e);
+    transform: translateY(-2px);
+}
+
+
+/* TOGGLE COMPONENT */
+.togglebutton-wrapper {
+    margin-top: 1em;
+}
+
+.togglebutton-wrapper label {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.togglebutton-wrapper input {
+    position: absolute;
+    left: -9999px;
+}
+
+.togglebutton-wrapper .togglebutton-label {
+    font-size: 0.9rem;
+    margin-right: 0.8rem;
+    color: #fff;
+}
+
+.togglebutton-wrapper .tooglebutton-box {
+    position: relative;
+    display: block;
+    width: 42px;
+    height: 24px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.togglebutton-wrapper .tooglebutton-box:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #ff758c;
+    transition: all 0.3s ease-in-out;
+}
+
+.togglebutton-wrapper.togglebutton-checked .tooglebutton-box {
+    background: linear-gradient(135deg, #ff758c, #ff4d7e);
+}
+
+.togglebutton-wrapper.togglebutton-checked .tooglebutton-box:before {
+    left: calc(100% - 4px - 20px);
+    background: white;
+}
